@@ -1,0 +1,33 @@
+.photoGridContainer {
+  position: relative;
+  width: 100%;
+  /* height: 100%; */
+}
+
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photoWrapper {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.imageWrapper {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.photo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

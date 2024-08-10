@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import CustomerList from "./components/CustomersList";
+import CustomerDetails from "./components/CustomersDetail";
+import { Customer } from "./types";
+import { useCustomers } from "./hooks/useCustomers";
+import styles from "./app.module.css";
 
-function App() {
+const App: React.FC = () => {
+  const { customers, loading, error } = useCustomers();
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (customers.length > 0) {
+      setSelectedCustomer(customers[0]);
+    }
+  }, [customers]);
+
+  if (loading) return <div className={styles.textCenter}>Loading...</div>;
+  if (error) return <div className={styles.textCenter}>Error: {error}</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className={styles.app}>
+        <CustomerList
+          customers={customers}
+          selectedCustomer={selectedCustomer}
+          onSelectCustomer={setSelectedCustomer}
+        />
+        {selectedCustomer && <CustomerDetails customer={selectedCustomer} />}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

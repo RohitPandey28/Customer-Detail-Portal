@@ -1,0 +1,19 @@
+.app {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .heading {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f0f0f0;
+    margin: 0;
+  }
+
+  .textCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }

@@ -1,0 +1,22 @@
+.customerDetails {
+    width: 70%;
+    padding: 50px;
+    overflow-y: auto;
+  }
+  
+  .customerName {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .customerTitle {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+  }
+  
+  .customerAddress {
+    margin-bottom: 20px;
+  }
